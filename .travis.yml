@@ -1,0 +1,19 @@
+language: node_js
+install:
+- npm install
+jobs:
+  include:
+  - stage: build
+    script: "./build.sh"
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: "$GH_TOKEN"
+  keep_history: true
+  on:
+    branch: master
+  local_dir: public
+  fqdn: rate.ophie.io
+env:
+  matrix:
+  - secure: MCBRcv+CKHfvMpJXl8Xnqli+ajXUapUKci13TaSjhY1RG9w3gUUj9ML2U7qLaf+Jjdp/2aFYhvXuSNsv9ochnw+/qgrvATHwCscqy5UC8Jf/O3QAY3WpLCgQmL8Ij9zx14jBzor2JS/bJYqK8NEI/SHgCg6ukSo2SWg71j9D908w3RB3eyNiL4Ot2LwoyAxq720DKGT/MtqyzVm7xaQGv7Vm2cOW4RvykAeY8t0jcuI06ozkxWmd2g0ePWj5/OWdvBo7XgnhYo4iO1FSNYQPXWPvdwE5je54rpJrKMhx4FG26ArJhGLRxQKgx4gqsdSMr7hmCUyVmpl/YB5QBnRoYAE9+0o1Cn0WpR2HpitqIPLEI8rz01tzFRkb7RN+Z7AWN0BQQRG5QgAQi3wXVWEWyAQwL9caqc7FvCi9jHVh5iKhJhoXviCgIkeDYe1yfnejTE7q35E2+KIQNmSaFpUVwuuyNWmZxy2R3iyA4uLkfGJDoeuGc6DOF6wXgR+8lzt4kIfaSRPNHNDnkgVdzd9Z7SiAYIPOgShAMk7072CxhK3Bmb0945wNhMEQY67p4qcQloN9mDY/RZklT7W7yU/yT7oE4gZ4JnHIzZRfymWCUVFuJQRVVA21jDXk3nW89CI3+kjNkpA7ozdFwwa6ZyjnE5+jHtCJJ5+tiyusOpoxayg=
