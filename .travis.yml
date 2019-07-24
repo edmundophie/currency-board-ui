@@ -8,6 +8,8 @@ jobs:
   - stage: build
     script: "./build.sh"
 deploy:
+  edge:
+    branch: v1.10.11
   provider: pages
   skip_cleanup: true
   github_token: "$GH_TOKEN"
